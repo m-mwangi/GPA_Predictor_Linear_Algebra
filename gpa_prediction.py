@@ -49,7 +49,7 @@ st.markdown("""
 
 st.markdown('<div class="title">🎓 Welcome to the GPA Predictor Tool!</div>', unsafe_allow_html=True)
 
-st.markdown('<div class="instructions">Fill in the details below and let us predict your GPA! </div>', unsafe_allow_html=True)
+st.markdown('<div class="instructions">Fill in the details displayed and let us predict your GPA! </div>', unsafe_allow_html=True)
 
 st.markdown('<div class="warning">⚠️ Be honest, the numbers you input will directly affect your prediction!</div>', unsafe_allow_html=True)
 
@@ -70,5 +70,4 @@ dating = 1 if dating == "Yes" else 0
 if st.sidebar.button("Predict My GPA! 🎯"):
     with st.spinner('Calculating your GPA...'):
         predicted_gpa = predict_gpa(study_hours, attendance_rate, past_gpa, num_courses, extracurricular, dating)
-    st.success(f"🎉 Your Predicted GPA is: {predicted_gpa:.2f} 🌟")
-
+    st.success(f"🎉 Your Predicted GPA is: {predicted_gpa:.2f}")
