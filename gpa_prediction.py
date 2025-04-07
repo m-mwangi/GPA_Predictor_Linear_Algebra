@@ -16,6 +16,8 @@ beta = [
 def predict_gpa(study_hours, attendance_rate, past_gpa, num_courses, extracurricular, dating):
     features = np.array([1, study_hours, attendance_rate, past_gpa, num_courses, extracurricular, dating])
     predicted_gpa = np.dot(features, beta)
+    # Clamp the predicted GPA between 0 and 4
+    predicted_gpa = max(0.0, min(4.0, predicted_gpa))
     return predicted_gpa
 
 # Title and Layout with Enhanced Color and Fun Instructions
