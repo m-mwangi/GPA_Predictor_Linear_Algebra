@@ -23,19 +23,19 @@ st.markdown("""
     <style>
         .title {
             font-size: 50px;
-            color: #008080;
+            color: #1abc9c;
             font-weight: bold;
             text-align: center;
             font-family: 'Arial', sans-serif;
         }
         .instructions {
-            font-size: 18px;
+            font-size: 22px;
             color: #3498db;
             font-style: italic;
             text-align: center;
         }
         .warning {
-            font-size: 16px;
+            font-size: 18px;
             color: #e74c3c;
             text-align: center;
         }
