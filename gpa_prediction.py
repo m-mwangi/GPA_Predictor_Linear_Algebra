@@ -47,9 +47,10 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-st.markdown('<div class="title">🎓 Welcome to the GPA Prediction Tool!</div>', unsafe_allow_html=True)
+st.markdown('<div class="title">🎓 Welcome to the GPA Predictor Tool!</div>', unsafe_allow_html=True)
 
 st.markdown('<div class="instructions">Fill in the details below and let us predict your GPA! </div>', unsafe_allow_html=True)
+
 st.markdown('<div class="warning">⚠️ Be honest, the numbers you input will directly affect your prediction!</div>', unsafe_allow_html=True)
 
 # Inputs in a sidebar with enhanced color
