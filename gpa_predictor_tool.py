@@ -50,27 +50,26 @@ st.markdown("""
     - **Extracurricular Activities**
     
     By inputting these details, you can get a prediction of your GPA on a scale of **0.0 to 4.0**.  
-    **Note:** This is a prediction based on historical data, and other personal factors may affect your final GPA.
+    
+    **Note:** While it's a good estimate, remember that other factors (e.g., personal health, etc.) could affect your GPA!
 """)
 st.markdown("---")
 
 # Section: About the Model
 st.markdown("<h3 style='color:#4A90E2;'>🔎 About the Model</h3>", unsafe_allow_html=True)
 st.markdown("""
-    The aim of this tool is to apply **linear algebra** concepts to predict a student's GPA using a **linear regression** model. 
+    This tool aims to apply **linear algebra** concepts to predict a student's GPA using a **linear regression** model. 
     Linear regression is a statistical method that models the relationship between a dependent variable (in this case, GPA) and one or more independent variables (such as study hours, attendance, etc.).
 
-    The process involves the following steps:
+    The process involved the following steps:
     
     1. **Data Collection**: Historical data is collected from students, including their study habits, attendance, and past GPA.
     
-    2. **Feature Selection**: Key factors that influence GPA are identified and selected as features for the model.
+    2. **Model Training**: The linear regression model was trained by calculating the coefficients (weights) that minimize the error in predictions.
     
-    3. **Model Training**: The linear regression model is trained using the selected features. The model learns the relationship between the features and the GPA by calculating the coefficients (weights) that minimize the error in predictions.
-    
-    4. **Prediction**: Once trained, the model can predict a student's GPA based on their input values for the selected features. The prediction formula is:
+    3. **Prediction**: Once trained, the model can predict a student's GPA based on their input values for the selected features. The prediction formula is:
     ```
-    GPA = β0 + β1 * Study Hours + β2 * Attendance + β3 * Tutoring Sessions + ...
+    GPA = β0 + β1 * Study Hours + β2 * Attendance + β3 * Tutoring Sessions + ...(all the feature columns used)
     ```
     where β represents the coefficients determined during the training process.
 
@@ -118,14 +117,6 @@ with col1:
         st.write(f"Your predicted GPA is: **{predicted_gpa:.2f}**", unsafe_allow_html=True)
         st.success("Prediction successful! 🎉")
 
-with col2:
-    st.markdown("""
-        ### 🌟 **About the GPA Predictor:**
-        This tool uses data such as study hours, class attendance, and past GPA to estimate your final GPA.
-        - It is based on a **linear regression model** that factors in key academic and personal factors.
-        - While it's a good estimate, remember that other factors (e.g., personal health, etc.) could affect your GPA!
-    """)
-    
 st.markdown("---")
 st.markdown("### 📬 **Contact:**")
 st.markdown("For any questions or feedback, reach out at [gpa.predictor@edu.com](mailto:gpa.predictor@edu.com)")
