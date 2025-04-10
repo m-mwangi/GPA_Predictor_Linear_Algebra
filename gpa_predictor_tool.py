@@ -36,6 +36,8 @@ st.markdown("""
     </div>
 """, unsafe_allow_html=True)
 
+# Section: About the Tool
+st.header("🌟 About the Tool")
 st.markdown("""
     This **GPA Predictor Tool** helps you estimate your **Final GPA** based on several factors, including:
     - **Study Hours per Week**
@@ -50,23 +52,37 @@ st.markdown("""
     By inputting these details, you can get a prediction of your GPA on a scale of **0.0 to 4.0**.  
     **Note:** This is a prediction based on historical data, and other personal factors may affect your final GPA.
 """)
-
 st.markdown("---")
 
-# Create a two-column layout for input form and result
+# Section: About the Model
+st.header("🔎 About the Model")
+st.markdown("""
+    This tool uses **Linear Regression** to predict GPA. The model was trained using historical student data. It calculates the GPA prediction using a set of features and returns a result within the range of **0.0 to 4.0**.
+
+    The prediction formula is:
+    ```
+    GPA = w0 + w1 * Study Hours + w2 * Attendance + w3 * Tutoring Sessions + ...
+    ```
+    Each weight (w) is determined during the model training process.
+
+    **Important:** This tool serves as a prediction and should not be considered 100% accurate. It's a helpful estimate based on the data provided.
+""")
+st.markdown("---")
+
+# Section: GPA Prediction
+st.header("🔮 GPA Prediction")
 col1, col2 = st.columns([2, 1])
 
-# Input form with enhanced colors and descriptions
 with col1:
-    st.subheader("🔮 **Enter Your Information:**")
-
-    # User Input Fields with a cohesive color theme
+    st.subheader("Enter Your Information:")
+    
+    # User Input Fields
     study_hours_per_week = st.number_input("📚 Study Hours per Week", min_value=0.0, max_value=168.0, value=20.0, step=0.5)
     attendance = st.number_input("📊 Class Attendance (%)", min_value=0.0, max_value=100.0, value=75.0, step=0.1)
     tutoring_sessions = st.number_input("🧑‍🏫 Tutoring Sessions", min_value=0, max_value=10, value=2)
     sleep_hours = st.number_input("💤 Sleep Hours per Night", min_value=0.0, max_value=24.0, value=7.0, step=0.5)
     number_of_courses = st.number_input("📘 Number of Courses", min_value=1, max_value=10, value=5)
-    past_gpa = st.number_input("🎓 Past GPA", min_value=0.0, max_value=4.0, value=2.5, step=0.1)
+    past_gpa = st.number_input("🎓 Past GPA", min_value=0.0, max_value=4.0 , value=2.5, step=0.1)
     relationship_status = st.selectbox("❤️ Relationship Status", ["Single", "In a relationship"])
     extracurricular = st.selectbox("🏅 Extracurricular Activities", ["No", "Yes"])
 
@@ -88,15 +104,12 @@ with col1:
             extracurricular
         )
         
-        # Display the result with a color
+        # Display the result
         st.subheader("🔮 **Predicted GPA:**")
         st.write(f"Your predicted GPA is: **{predicted_gpa:.2f}**", unsafe_allow_html=True)
         st.success("Prediction successful! 🎉")
 
 with col2:
-    # Display an image or infographic
-    # st.image("https://via.placeholder.com/200x200.png?text=GPA+Predictor", use_column_width=True)
-    
     st.markdown("""
         ### 🌟 **About the GPA Predictor:**
         This tool uses data such as study hours, class attendance, and past GPA to estimate your final GPA.
@@ -104,20 +117,6 @@ with col2:
         - While it's a good estimate, remember that other factors (e.g., personal health, etc.) could affect your GPA!
     """)
     
-    st.markdown("---")
-    st.markdown("### 🔎 **About the Model:**")
-    st.markdown("""
-        This tool uses **Linear Regression** to predict GPA. The model was trained using historical student data. It calculates the GPA prediction using a set of features and returns a result within the range of **0.0 to 4.0**.
-
-        The prediction formula is:
-        ```
-        GPA = w0 + w1 * Study Hours + w2 * Attendance + w3 * Tutoring Sessions + ...
-        ```
-        Each weight (w) is determined during the model training process.
-
-        **Important:** This tool serves as a prediction and should not be considered 100% accurate. It's a helpful estimate based on the data provided.
-    """)
-    
-    st.markdown("---")
-    st.markdown("### 📬 **Contact:**")
-    st.markdown("For any questions or feedback, reach out at [gpa.predictor@edu.com](mailto:gpa.predictor@edu.com)")
+st.markdown("---")
+st.markdown("### 📬 **Contact:**")
+st.markdown("For any questions or feedback, reach out at [gpa.predictor@edu.com](mailto:gpa.predictor@edu.com)")
