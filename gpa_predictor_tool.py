@@ -37,7 +37,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Section: About the Tool
-st.header("🌟 About the Tool")
+st.markdown("<h3 style='color:#4A90E2;'>🌟 About the Tool</h3>", unsafe_allow_html=True)
 st.markdown("""
     This **GPA Predictor Tool** helps you estimate your **Final GPA** based on several factors, including:
     - **Study Hours per Week**
@@ -55,22 +55,31 @@ st.markdown("""
 st.markdown("---")
 
 # Section: About the Model
-st.header("🔎 About the Model")
+st.markdown("<h3 style='color:#4A90E2;'>🔎 About the Model</h3>", unsafe_allow_html=True)
 st.markdown("""
-    This tool uses **Linear Regression** to predict GPA. The model was trained using historical student data. It calculates the GPA prediction using a set of features and returns a result within the range of **0.0 to 4.0**.
+    The aim of this tool is to apply **linear algebra** concepts to predict a student's GPA using a **linear regression** model. 
+    Linear regression is a statistical method that models the relationship between a dependent variable (in this case, GPA) and one or more independent variables (such as study hours, attendance, etc.).
 
-    The prediction formula is:
+    The process involves the following steps:
+    
+    1. **Data Collection**: Historical data is collected from students, including their study habits, attendance, and past GPA.
+    
+    2. **Feature Selection**: Key factors that influence GPA are identified and selected as features for the model.
+    
+    3. **Model Training**: The linear regression model is trained using the selected features. The model learns the relationship between the features and the GPA by calculating the coefficients (weights) that minimize the error in predictions.
+    
+    4. **Prediction**: Once trained, the model can predict a student's GPA based on their input values for the selected features. The prediction formula is:
     ```
-    GPA = w0 + w1 * Study Hours + w2 * Attendance + w3 * Tutoring Sessions + ...
+    GPA = β0 + β1 * Study Hours + β2 * Attendance + β3 * Tutoring Sessions + ...
     ```
-    Each weight (w) is determined during the model training process.
+    where β represents the coefficients determined during the training process.
 
     **Important:** This tool serves as a prediction and should not be considered 100% accurate. It's a helpful estimate based on the data provided.
 """)
 st.markdown("---")
 
 # Section: GPA Prediction
-st.header("🔮 GPA Prediction")
+st.markdown("<h3 style='color:#4A90E2;'>🔮 GPA Prediction</h3>", unsafe_allow_html=True)
 col1, col2 = st.columns([2, 1])
 
 with col1:
