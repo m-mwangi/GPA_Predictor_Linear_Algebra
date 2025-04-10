@@ -28,59 +28,46 @@ def predict_gpa(study_hours_per_week, attendance, tutoring_sessions, sleep_hours
 st.set_page_config(page_title="GPA Predictor", page_icon="📚", layout="wide")
 
 # Title and Description with Enhanced Colors and Background
+st.title("📚 **GPA Predictor Tool**")
 st.markdown("""
     <style>
-        .title {
+        .header-background {
             background-color: #4A90E2;
-            padding: 20px;
-            border-radius: 10px;
+            padding: 25px;
+            border-radius: 12px;
+            color: white;
             text-align: center;
-            color: white;
-            font-size: 2.5em;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
-        .subtitle {
-            background-color: #F5A623;
-            padding: 10px;
-            border-radius: 10px;
-            color: white;
-            font-size: 1.5em;
-        }
-        .section-header {
+        .subheader {
             color: #4A90E2;
-            font-size: 1.8em;
         }
-        .section-content {
-            font-size: 1.1em;
-            line-height: 1.6;
+        .section-background {
+            background-color: #f7f7f7;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
         }
-        .predict-button {
+        .stButton>button {
             background-color: #4A90E2;
             color: white;
-            padding: 10px 20px;
-            font-size: 1.1em;
-            border-radius: 5px;
+            font-weight: bold;
+            border-radius: 8px;
+            transition: all 0.3s ease;
         }
-        .info-box {
-            border-radius: 10px;
-            padding: 15px;
-            background-color: #F1F8FF;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        .footer {
-            background-color: #4A90E2;
-            padding: 10px;
-            text-align: center;
-            color: white;
-            font-size: 1.2em;
+        .stButton>button:hover {
+            background-color: #357ABD;
         }
     </style>
-    <div class="title">📚 **GPA Predictor Tool**</div>
+    <div class="header-background">
+        <h2>Estimate Your Final GPA Based on Key Factors</h2>
+        <h4>"Math meets life. Predict your GPA, shape your strategy."</h4>
+    </div>
 """, unsafe_allow_html=True)
 
 # Section: About the Tool
-st.markdown("<h3 class='section-header'>🌟 About the Tool</h3>", unsafe_allow_html=True)
+st.markdown("<h3 class='subheader'>🌟 About the Tool</h3>", unsafe_allow_html=True)
 st.markdown("""
-    <div class="section-content">
     This **GPA Predictor Tool** helps you estimate your **Final GPA** based on several factors, including:
     - **Study Hours per Week**
     - **Class Attendance**
@@ -92,43 +79,42 @@ st.markdown("""
     - **Extracurricular Activities**
     
     By inputting these details, you can get a prediction of your GPA on a scale of **0.0 to 4.0**.  
+    
     **Note:** While it's a good estimate, remember that other factors (e.g., personal health, etc.) could affect your GPA!
-    </div>
-""", unsafe_allow_html=True)
-
+""")
 st.markdown("---")
 
 # Section: About the Model
-st.markdown("<h3 class='section-header'>🔎 About the Model</h3>", unsafe_allow_html=True)
+st.markdown("<h3 class='subheader'>🔎 About the Model</h3>", unsafe_allow_html=True)
 st.markdown("""
-    <div class="section-content">
-    This tool applies **linear algebra** concepts to predict a student's GPA using a **linear regression** model. The process involved:
-    1. **Data Collection**
-    2. **Model Training**
-    3. **Prediction**
-    
-    The prediction formula is:
-    ```GPA = β0 + β1 * Study Hours + β2 * Attendance + ...```
-    **Note:** This tool provides an estimate and should not be considered 100% accurate.
-    </div>
-""", unsafe_allow_html=True)
+    This tool applies **linear regression** to predict a student's GPA. The model uses a statistical method that models the relationship between a dependent variable (GPA) and several independent variables (such as study hours, attendance, etc.).
 
+    The process involved:
+    1. **Data Collection**: Historical data from students, covering their study habits, attendance, and past GPA.
+    2. **Model Training**: The coefficients (weights) are learned by minimizing the prediction error.
+    3. **Prediction**: The model predicts your GPA based on the formula:
+    ``` 
+    GPA = β0 + β1 * Study Hours + β2 * Attendance + β3 * Tutoring Sessions + ... 
+    ```
+
+    **Important:** This is a predictive tool, and the results should be treated as an estimate.
+""")
 st.markdown("---")
 
 # Section: GPA Prediction
-st.markdown("<h3 class='section-header'>🔮 GPA Prediction</h3>", unsafe_allow_html=True)
+st.markdown("<h3 class='subheader'>🔮 GPA Prediction</h3>", unsafe_allow_html=True)
 col1, col2 = st.columns([2, 1])
 
 with col1:
     st.subheader("Enter Your Information:")
     
-    # User Input Fields
-    study_hours_per_week = st.slider("📚 Study Hours per Week", min_value=0, max_value=168, value=20)
-    attendance = st.slider("📊 Class Attendance (%)", min_value=0.0, max_value=100.0, value=75.0)
-    tutoring_sessions = st.slider("🧑‍🏫 Tutoring Sessions", min_value=0, max_value=10, value=2)
-    sleep_hours = st.slider("💤 Sleep Hours per Night", min_value=0, max_value=24, value=7)
-    number_of_courses = st.slider("📘 Number of Courses", min_value=1, max_value=10, value=5)
-    past_gpa = st.slider("🎓 Past GPA", min_value=0.0, max_value=4.0, value=2.5)
+    # User Input Fields in a more modern layout
+    study_hours_per_week = st.number_input("📚 Study Hours per Week", min_value=0.0, max_value=168.0, value=20.0, step=0.5)
+    attendance = st.number_input("📊 Class Attendance (%)", min_value=0.0, max_value=100.0, value=75.0, step=0.1)
+    tutoring_sessions = st.number_input("🧑‍🏫 Tutoring Sessions", min_value=0, max_value=10, value=2)
+    sleep_hours = st.number_input("💤 Sleep Hours per Night", min_value=0.0, max_value=24.0, value=7.0, step=0.5)
+    number_of_courses = st.number_input("📘 Number of Courses", min_value=1, max_value=10, value=5)
+    past_gpa = st.number_input("🎓 Past GPA", min_value=0.0, max_value=4.0 , value=2.5, step=0.1)
     relationship_status = st.selectbox("❤️ Relationship Status", ["Single", "In a relationship"])
     extracurricular = st.selectbox("🏅 Extracurricular Activities", ["No", "Yes"])
 
@@ -137,7 +123,8 @@ with col1:
     extracurricular = 1 if extracurricular == "Yes" else 0
 
     # Button to trigger the prediction
-    if st.button("🔮 **Predict GPA**", key="predict-btn"):
+    if st.button("🔮 **Predict GPA**"):
+        # Call the prediction function
         predicted_gpa = predict_gpa(
             study_hours_per_week, 
             attendance, 
@@ -155,6 +142,6 @@ with col1:
         st.success("Prediction successful! 🎉")
 
 st.markdown("---")
+st.markdown("### 📬 **Contact:**")
+st.markdown("For any questions or feedback, reach out at [gpa.predictor@edu.com](mailto:gpa.predictor@edu.com)")
 
-# Contact Section
-st.markdown("<div class='footer'>📬 **Contact:** gpa.predictor@edu.com</div>", unsafe_allow_html=True)
