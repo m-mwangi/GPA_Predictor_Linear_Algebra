@@ -94,7 +94,7 @@ with col1:
 
 with col2:
     # Display an image or infographic
-    st.image("https://via.placeholder.com/200x200.png?text=GPA+Predictor", use_column_width=True)
+    #st.image("https://via.placeholder.com/200x200.png?text=GPA+Predictor", use_column_width=True)
     
     st.markdown("""
         ### 🌟 **About the GPA Predictor:**
