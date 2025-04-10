@@ -31,8 +31,9 @@ st.set_page_config(page_title="GPA Predictor", page_icon="📚", layout="wide")
 st.title("📚 **GPA Predictor Tool**")
 st.markdown("""
     <style>
+        /* Custom Styles */
         .header-background {
-            background-color: #4A90E2;
+            background: linear-gradient(45deg, #ff7f50, #ff1493); 
             padding: 25px;
             border-radius: 12px;
             color: white;
@@ -40,13 +41,25 @@ st.markdown("""
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
         .subheader {
-            color: #4A90E2;
+            color: #2e8b57;
         }
         .section-background {
-            background-color: #f7f7f7;
+            background: linear-gradient(135deg, #f3f4f6, #e6e6e6);
             padding: 20px;
             border-radius: 8px;
             margin-bottom: 20px;
+        }
+        .highlight-box {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 30px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .highlight-box:hover {
+            transform: scale(1.05);
         }
         .stButton>button {
             background-color: #4A90E2;
@@ -136,12 +149,14 @@ with col1:
             extracurricular
         )
         
-        # Display the result
-        st.subheader("🔮 **Predicted GPA:**")
-        st.write(f"Your predicted GPA is: **{predicted_gpa:.2f}**", unsafe_allow_html=True)
-        st.success("Prediction successful! 🎉")
+        # Highlighted Prediction Section
+        st.markdown(f"""
+            <div class="highlight-box">
+                <h3>Your predicted GPA is: <strong>{predicted_gpa:.2f}</strong></h3>
+                <p>This is your estimated GPA based on the provided data. Keep in mind this is a predictive model and the actual results may vary.</p>
+            </div>
+        """, unsafe_allow_html=True)
 
 st.markdown("---")
 st.markdown("### 📬 **Contact:**")
 st.markdown("For any questions or feedback, reach out at [gpa.predictor@edu.com](mailto:gpa.predictor@edu.com)")
-
