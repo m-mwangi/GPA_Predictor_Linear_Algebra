@@ -2,8 +2,8 @@ import streamlit as st
 import numpy as np
 
 # Define the beta coefficients (from the model you trained)
-beta = np.array([ 0.3690129,  0.01926417,  0.01280503,  0.09759901, 0.05214934, 
-                 -0.08422138, 0.46388344,  -0.03180732,  0.08167594 ])
+beta = np.array([0.3690129, 0.01926417, 0.01280503, 0.09759901, 0.05214934, 
+                 -0.08422138, 0.46388344, -0.03180732, 0.08167594])
 
 # Function to predict GPA
 def predict_gpa(study_hours_per_week, attendance, tutoring_sessions, sleep_hours,
@@ -30,8 +30,9 @@ st.set_page_config(page_title="GPA Predictor", page_icon="📚", layout="wide")
 # Title and Description with Enhanced Colors and Background
 st.title("📚 **GPA Predictor Tool**")
 st.markdown("""
-    <div style="background-color:#007f7f; padding: 10px; border-radius: 5px;">
-    <h3 style="color:white; text-align:center;">Estimate Your Final GPA Based on Key Factors</h3>
+    <div style="background-color:#007f7f; padding: 20px; border-radius: 10px; text-align:center;">
+    <h2 style="color:white;">Estimate Your Final GPA Based on Key Factors</h2>
+    <h4 style="color:white;">"Math meets life. Predict your GPA, shape your strategy."</h4>
     </div>
 """, unsafe_allow_html=True)
 
@@ -89,12 +90,12 @@ with col1:
         
         # Display the result with a color
         st.subheader("🔮 **Predicted GPA:**")
-        st.write(f"Your predicted GPA is: **{predicted_gpa:.2f}**", style="font-weight: bold; color: teal;")
+        st.write(f"Your predicted GPA is: **{predicted_gpa:.2f}**", unsafe_allow_html=True)
         st.success("Prediction successful! 🎉")
 
 with col2:
     # Display an image or infographic
-    #st.image("https://via.placeholder.com/200x200.png?text=GPA+Predictor", use_column_width=True)
+    # st.image("https://via.placeholder.com/200x200.png?text=GPA+Predictor", use_column_width=True)
     
     st.markdown("""
         ### 🌟 **About the GPA Predictor:**
