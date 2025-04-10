@@ -30,7 +30,7 @@ st.set_page_config(page_title="GPA Predictor", page_icon="📚", layout="wide")
 # Title and Description with Enhanced Colors and Background
 st.title("📚 **GPA Predictor Tool**")
 st.markdown("""
-    <div style="background-color:#007f7f; padding: 20px; border-radius: 10px; text-align:center;">
+    <div style="background-color:#4A90E2; padding: 20px; border-radius: 10px; text-align:center;">
     <h2 style="color:white;">Estimate Your Final GPA Based on Key Factors</h2>
     <h4 style="color:white;">"Math meets life. Predict your GPA, shape your strategy."</h4>
     </div>
@@ -60,7 +60,7 @@ col1, col2 = st.columns([2, 1])
 with col1:
     st.subheader("🔮 **Enter Your Information:**")
 
-    # User Input Fields with blue color theme
+    # User Input Fields with a cohesive color theme
     study_hours_per_week = st.number_input("📚 Study Hours per Week", min_value=0.0, max_value=168.0, value=20.0, step=0.5)
     attendance = st.number_input("📊 Class Attendance (%)", min_value=0.0, max_value=100.0, value=75.0, step=0.1)
     tutoring_sessions = st.number_input("🧑‍🏫 Tutoring Sessions", min_value=0, max_value=10, value=2)
@@ -121,7 +121,3 @@ with col2:
     st.markdown("---")
     st.markdown("### 📬 **Contact:**")
     st.markdown("For any questions or feedback, reach out at [gpa.predictor@edu.com](mailto:gpa.predictor@edu.com)")
-
-# Footer (Optional)
-st.markdown("---")
-st.markdown("<div style='background-color:#007f7f; padding: 10px; text-align: center; border-radius: 5px;'>Made with ❤️ by [Your Name].</div>", unsafe_allow_html=True)
