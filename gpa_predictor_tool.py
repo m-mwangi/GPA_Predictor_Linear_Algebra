@@ -136,7 +136,7 @@ with col1:
     extracurricular = 1 if extracurricular == "Yes" else 0
 
     # Button to trigger the prediction
-    if st.button("🔮 **Predict GPA**"):
+    if st.button("**Predict GPA**"):
         # Call the prediction function
         predicted_gpa = predict_gpa(
             study_hours_per_week, 
