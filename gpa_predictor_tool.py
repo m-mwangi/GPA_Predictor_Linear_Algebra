@@ -41,7 +41,11 @@ st.markdown("""
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
         .subheader {
+            font-size: 24px;
+            font-weight: bold;
             color: #2e8b57;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
         }
         .section-background {
             background: linear-gradient(135deg, #f3f4f6, #e6e6e6);
@@ -71,6 +75,18 @@ st.markdown("""
         .stButton>button:hover {
             background-color: #357ABD;
         }
+        /* Section title custom styles */
+        .custom-title {
+            font-size: 30px;
+            font-weight: bold;
+            background: linear-gradient(90deg, #ff7f50, #ff1493);
+            -webkit-background-clip: text;
+            color: transparent;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 40px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        }
     </style>
     <div class="header-background">
         <h2>Estimate Your Final GPA Based on Key Factors</h2>
@@ -79,7 +95,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Section: About the Tool
-st.markdown("<h3 class='subheader'>🌟 About the Tool</h3>", unsafe_allow_html=True)
+st.markdown("<h3 class='custom-title'>🌟 About the Tool</h3>", unsafe_allow_html=True)
 st.markdown("""
     This **GPA Predictor Tool** helps you estimate your **Final GPA** based on several factors, including:
     - **Study Hours per Week**
@@ -98,7 +114,7 @@ st.markdown("""
 st.markdown("---")
 
 # Section: About the Model
-st.markdown("<h3 class='subheader'>🔎 About the Model</h3>", unsafe_allow_html=True)
+st.markdown("<h3 class='custom-title'>🔎 About the Model</h3>", unsafe_allow_html=True)
 st.markdown("""
     This tool applies **linear regression** to predict a student's GPA. The model uses a statistical method that models the relationship between a dependent variable (GPA) and several independent variables (such as study hours, attendance, etc.).
 
@@ -115,7 +131,7 @@ st.markdown("""
 st.markdown("---")
 
 # Section: GPA Prediction
-st.markdown("<h3 class='subheader'>🔮 GPA Prediction</h3>", unsafe_allow_html=True)
+st.markdown("<h3 class='custom-title'>🔮 GPA Prediction</h3>", unsafe_allow_html=True)
 col1, col2 = st.columns([2, 1])
 
 with col1:
