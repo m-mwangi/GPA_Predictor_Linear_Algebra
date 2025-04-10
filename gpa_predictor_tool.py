@@ -87,6 +87,13 @@ st.markdown("""
             margin-top: 40px;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
         }
+        .input-section {
+            margin-top: 20px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
     </style>
     <div class="header-background">
         <h2>Estimate Your Final GPA Based on Key Factors</h2>
