@@ -1,7 +1,7 @@
 import streamlit as st
 import numpy as np
 
-# Define the beta coefficients (from the model you trained)
+# Define the beta coefficients from the trained model
 beta = np.array([0.3690129, 0.01926417, 0.01280503, 0.09759901, 0.05214934, 
                  -0.08422138, 0.46388344, -0.03180732, 0.08167594])
 
@@ -21,14 +21,14 @@ def predict_gpa(study_hours_per_week, attendance, tutoring_sessions, sleep_hours
     ])
     
     predicted_gpa = np.dot(input_features, beta)
-    predicted_gpa = np.clip(predicted_gpa, 0.0, 4.0)  # Ensure GPA is between 0 and 4
+    predicted_gpa = np.clip(predicted_gpa, 0.0, 4.0)
     return predicted_gpa
 
 # Streamlit app layout
-st.set_page_config(page_title="GPA Predictor", page_icon="📚", layout="wide")
+st.set_page_config(page_title = "GPA Predictor", page_icon = "📚", layout = "wide")
 
 # Title and Description with Enhanced Colors and Background
-st.title("📚 **GPA Predictor Tool**")
+st.title("**GPA Predictor Tool**")
 st.markdown("""
     <style>
         /* Custom Styles */
@@ -79,7 +79,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Section: About the Tool
-st.markdown("<h3 class='subheader'>🌟 About the Tool</h3>", unsafe_allow_html=True)
+st.markdown("<h3 class='subheader'>🌟 About the Tool</h3>", unsafe_allow_html = True)
 st.markdown("""
     This **GPA Predictor Tool** helps you estimate your **Final GPA** based on several factors, including:
     - **Study Hours per Week**
@@ -91,14 +91,14 @@ st.markdown("""
     - **Relationship Status**
     - **Extracurricular Activities**
     
-    By inputting these details, you can get a prediction of your GPA on a scale of **0.0 to 4.0**.  
+    By inputting these details, you can predict your GPA on a scale of **0.0 to 4.0**.  
     
     **Note:** While it's a good estimate, remember that other factors (e.g., personal health, etc.) could affect your GPA!
 """)
 st.markdown("---")
 
 # Section: About the Model
-st.markdown("<h3 class='subheader'>🔎 About the Model</h3>", unsafe_allow_html=True)
+st.markdown("<h3 class='subheader'>🔎 About the Model</h3>", unsafe_allow_html = True)
 st.markdown("""
     This tool applies **linear regression** to predict a student's GPA. The model uses a statistical method that models the relationship between a dependent variable (GPA) and several independent variables (such as study hours, attendance, etc.).
 
@@ -109,25 +109,23 @@ st.markdown("""
     ``` 
     GPA = β0 + β1 * Study Hours + β2 * Attendance + β3 * Tutoring Sessions + ... 
     ```
-
-    **Important:** This is a predictive tool, and the results should be treated as an estimate.
 """)
 st.markdown("---")
 
 # Section: GPA Prediction
-st.markdown("<h3 class='subheader'>🔮 GPA Prediction</h3>", unsafe_allow_html=True)
+st.markdown("<h3 class = 'subheader'>🔮 GPA Prediction</h3>", unsafe_allow_html = True)
 col1, col2 = st.columns([2, 1])
 
 with col1:
     st.subheader("Enter Your Information:")
     
     # User Input Fields in a more modern layout
-    study_hours_per_week = st.number_input("📚 Study Hours per Week", min_value=0.0, max_value=168.0, value=20.0, step=0.5)
-    attendance = st.number_input("📊 Class Attendance (%)", min_value=0.0, max_value=100.0, value=75.0, step=0.1)
-    tutoring_sessions = st.number_input("🧑‍🏫 Tutoring Sessions", min_value=0, max_value=10, value=2)
-    sleep_hours = st.number_input("💤 Sleep Hours per Night", min_value=0.0, max_value=24.0, value=7.0, step=0.5)
-    number_of_courses = st.number_input("📘 Number of Courses", min_value=1, max_value=10, value=5)
-    past_gpa = st.number_input("🎓 Past GPA", min_value=0.0, max_value=4.0 , value=2.5, step=0.1)
+    study_hours_per_week = st.number_input("📚 Study Hours per Week", min_value = 0.0, max_value = 168.0, value = 20.0, step = 0.5)
+    attendance = st.number_input("📊 Class Attendance (%)", min_value = 0.0, max_value = 100.0, value = 75.0, step = 0.1)
+    tutoring_sessions = st.number_input("🧑‍🏫 Tutoring Sessions", min_value = 0, max_value = 10, value = 2)
+    sleep_hours = st.number_input("💤 Sleep Hours per Night", min_value = 0.0, max_value = 24.0, value = 7.0, step = 0.5)
+    number_of_courses = st.number_input("📘 Number of Courses", min_value = 1, max_value = 10, value = 5)
+    past_gpa = st.number_input("🎓 Past GPA", min_value = 0.0, max_value = 4.0 , value = 2.5, step = 0.1)
     relationship_status = st.selectbox("❤️ Relationship Status", ["Single", "In a relationship"])
     extracurricular = st.selectbox("🏅 Extracurricular Activities", ["No", "Yes"])
 
@@ -155,7 +153,7 @@ with col1:
                 <h3>Your predicted GPA is: <strong>{predicted_gpa:.2f}</strong></h3>
                 <p>This is your estimated GPA based on the provided data. Keep in mind this is a predictive model and the actual results may vary.</p>
             </div>
-        """, unsafe_allow_html=True)
+        """, unsafe_allow_html = True)
 
 st.markdown("---")
 st.markdown("### 📬 **Contact:**")
