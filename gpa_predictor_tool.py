@@ -28,7 +28,7 @@ def predict_gpa(study_hours_per_week, attendance, tutoring_sessions, sleep_hours
 st.set_page_config(page_title = "GPA Predictor", page_icon = "📚", layout = "wide")
 
 # Title and Description with Enhanced Colors and Background
-st.title("**GPA Predictor Tool**")
+st.title("**GPA PREDICTOR TOOL**")
 st.markdown("""
     <style>
         /* Custom Styles */
